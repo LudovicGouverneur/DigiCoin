@@ -14,10 +14,10 @@
   
   
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="./billboard.js"></script>
+  <!-- <script src="./billboard.js"></script> -->
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./billboard.css">
+  <!-- <link rel="stylesheet" href="./billboard.css"> -->
   <link rel="stylesheet" href="./theme/insight.css"> 
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
@@ -29,9 +29,9 @@
 </head>
 
 <body>
-  <div class="jumbotron text-center" style="margin-bottom:0">
+  <div id='headZone'class="jumbotron text-center" style="margin-bottom:0">
     <h1>Welcome to DigiDapps</h1>
-    <p>A Dapp made for the DigiCoin Local Economy, at Digityser </p> 
+    <h2>A Dapp, a tool. <br> <br> An original membership system based on blockchain </h2> 
   </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -112,15 +112,17 @@
 
 
 
-
+  <div id="root_table"></div>
   <div id="root"></div>
   <div id="chart"></div>
   <div id="BubbleChart"></div> 
   <div id="PieChart"></div>
 
-  <script src="main.js"></script>
-  <script src = "./script.js"></script>
-
+  <!-- <script src="Features/Bank/js/createTable.js"></script> -->
+  <script src="./Scripts/createTable.js"></script>
+  <script src="./Scripts/Main.js"></script>
+  <!-- <script src="./ApiCalls/API_Etherscan.js"></script> -->
+  
   <footer>"Powered by Etherscan.io APIs"</footer>
   
 </body>

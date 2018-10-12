@@ -10,7 +10,15 @@
     color: #666;
     background: rgb(26, 61, 136);
   }
-  
+  #headZone {
+    margin-bottom: 0px;
+    background-image: url("./img/bg--waves.jpg");
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat; */
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+} 
   #root {
     max-width: 1200px;
     margin: 0 auto;
@@ -25,6 +33,14 @@
     color: white;
   }
   
+  h2 {
+    text-align: center;
+    padding: 1.5rem 2.5rem;
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    color: white;
+  }
+
   img {
     display: block;
     margin: 1rem auto;
@@ -72,9 +88,9 @@
     }
   }
   
-  .card:nth-child(2n) h1 {
+  /* .card:nth-child(2n) h1 {
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  }
+  } */
   
   .card:nth-child(4n) h1 {
     background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
