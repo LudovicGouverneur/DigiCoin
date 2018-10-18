@@ -9,6 +9,7 @@ var model = {
     Token_contract : "0xc2cf772a5fa04a47a28fa4e903aff42a128d60ad", // The Digicoin Smart Contract 
     Api_Key : "ZINR991FNJCMMYZKWHIRDR7G1Z9XGDXAC2",                // Personnal API Key
     Eth_Network : "https://api-ropsten.etherscan.io/api?",         // ! Choose your network (h)
+    // UsersAddress : JSON.parse("./HardStore/users"),
     UsersAddress:['0x7d473776bb4abf607e2d1b20674a395c2501988d',    // ! Target Users. Ask the blockchain directly
                   '0xded89244232d979bf28bdbcd19327b5d165569bf',
                   '0x7d473776bb4abf607e2d1b20674a395c2501988d',
@@ -22,7 +23,7 @@ var model = {
                   '0xe4b28d18b91b60d4c2e2f35a624d6f468fd09e42'],
     module : "account",
     action : "tokentx", //"balance"
-    
+    GraphData : [],//[[[], [], [], []]],
     Database : {
         transactionDB : [[], []]
     }
@@ -64,29 +65,37 @@ var logic = {
         // model.UsersAddress = ?
     //  ! API call BC have all users balance
     //  ! API call BC and EtherScan get all users transactions
-
-        // Loop through users
-                //  function timeout() {
-                //     setTimeout(function () {
-                //         // Do Something Here
-                //         // Then recall the parent function to
-                //         // create a recursive loop.
-                //         timeout();
-                //     }, 6000);
-                // }
-        let length_users = model.UsersAddress.length;         
+                               
+        // EtherScan_transaction         
+         logic.start(0);
+         console.log(model.Database.transactionDB );
+         setInterval(logic.appendArrays,15000)
+    },
+    appendArrays : function(){
+        let length_trans;
+        length = model.UsersAddress.length;
+        for (i_user=0;i_user<length-1;i_user++){
+                model.GraphData[i_user] = new Array();
+                model.GraphData[i_user][0] = new Array();
+                model.GraphData[i_user][1] = new Array();
+                model.GraphData[i_user][2] = new Array();
+                model.GraphData[i_user][3] = new Array();
                 
-        // EtherScan_transaction
-        console.log("appending") 
-        for (let i=0;i<length_users-1;i++){
-                // model.Database.transactionDB[i] = API_Etherscan.transaction(model.UsersAddress[i],i)    
-                setTimeout(function(){
-                    console.log('n° ' + i);
-                    model.Database.transactionDB[i] = API_Etherscan.transaction(model.UsersAddress[i],i)
-                }, 6000)
-         }    
-         console.log(model.Database.transactionDB)
-                    
+                length_trans = model.Database.transactionDB[i_user].length;
+                console.log("user targer :" + i_user + " length : " + length_trans)
+            for (j_trans=0;j_trans<length_trans;j_trans++){
+                // model.GraphData[i_user][j_trans] = new Array()
+                model.GraphData[i_user][0][j_trans] = parseInt(model.Database.transactionDB[i_user][j_trans].value);
+                model.GraphData[i_user][1][j_trans] = model.Database.transactionDB[i_user][j_trans].from;
+                model.GraphData[i_user][2][j_trans] = model.Database.transactionDB[i_user][j_trans].to;
+                model.GraphData[i_user][3][j_trans] = new Date(1000*parseInt(model.Database.transactionDB[i_user][j_trans].timeStamp)).toDateString();
+                
+                // console.log("Block Number for this transaction is : " + Transfers[i])
+            }
+        }
+    },
+    
+       
          // Blockchain_transaction
 
     //  ! API call BC and EtherScan get have :
@@ -95,32 +104,59 @@ var logic = {
       // Volume,
  
 
-    }
+
+    start : function(counter) {
+        if(counter < model.UsersAddress.length){
+          setTimeout(function(){
+            
+            model.Database.transactionDB[counter] = API_Etherscan.transaction(model.UsersAddress[counter],counter)
+            counter++;
+            logic.start(counter);
+          }, 1000)
+        console.log("user n°" + counter)          
+        }
+      }
+
 }
+
 console.log("start appending")
 logic.appendDB()
+
+setTimeout(function(){
+  // for (i=0;i<model.UsersAddress.length;i++)
+    a = model.GraphData[1][0];
+    a.unshift("owner");
+    b = model.GraphData[2][0]
+    b.unshift("bar");
+    c = model.GraphData[3][0]
+    c.unshift("user1");
+    d = model.GraphData[4][0]
+    d.unshift("user2");
+    e = model.GraphData[5][0]
+    e.unshift("user3");
+    f = model.GraphData[6][0]
+    f.unshift("user3");
+    g = model.GraphData[7][0]
+    g.unshift("user4");
+    h = model.GraphData[8][0]
+    h.unshift("user4");
+    // setTimeout(function(){
+      chart = bb.generate({
+        data: {
+          columns: [
+            a,b,c,d,e,f,g,h
+        // ["data2", 130, 100, 140, 200, 150, 50]
+          ],
+          type: "bar"
+        },
+        bar: {
+          width: {
+            ratio: 0.5
+          }
+        },
+        bindto: "#BarChart"
+        });
+  }, 16000)
+
+// logic.appendArrays()
 //////////////////////////////////////////////////////////////////////////////
-
-// var Transfers = [[], [], []];
-//   if (request.status >= 200 && request.status < 400) {
-//      console.log(data);    
-    
-//     length = data.result.length;
-//     for (i=0;i<length;i++){
-//         Transfers[0][i] = data.result[i].value;
-//         Transfers[1][i] = data.result[i].from;
-//         Transfers[2][i] = data.result[i].to;
-//         // console.log("Block Number for this transaction is : " + Transfers[i])
-//     }
-//     console.log(Transfers)
-//     createTable(Transfers)
-//   } else {
-//     console.log('error');
-//   }
-
-// logic.graph()
-// setTimeout(console.log(API_Etherscan.dataset), 10000);
-// setTimeout(logic.parse(), 60000);
-
-
-
