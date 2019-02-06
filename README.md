@@ -1,11 +1,11 @@
 # Digicoin
 
-# Previous version 
+## Previous version 
 
-## Version 1.0
- ### Abstract : /
- ### link : /
- ### Characteristics
+### Version 1.0
+ #### Abstract : /
+ #### link : /
+ #### Characteristics
  - Developper(s) : Jean Walmack
  - Teck stack : 
     - ERC 20 on Ethereum blockchain
@@ -14,21 +14,21 @@
     - Mobile application : Cipher
     - web application : none
 
-## Version 2.0
+### Version 2.0
   - Developper(s) : 
     - [Yann-Aël Le Borgne](https://www.linkedin.com/in/yannaelb/)
-    - [Ludovic Gouverneur)(https://www.linkedin.com/in/LGouverneur6921/)
- ### Abstract : The smart contract is compiled and deployed using  
- ### link : /
+    - [Ludovic Gouverneur](https://www.linkedin.com/in/LGouverneur6921/)
+ #### Abstract : The smart contract is compiled and deployed using  
+ #### link : /
     - https://remix.ethereum.org/
   
-## Version 3.0
- ### Abstract : Current version. This version introduce a web application
- ### Ressources : 
+### Version 3.0
+ #### Abstract : Current version. This version introduce a web application
+ #### Ressources : 
  - Github repo : [main repo](
  - medium article : [draft #1](https://medium.com/@ludovic.gouverneur/digicoin-project-an-experimental-and-local-digital-economy-feb-2019-1b460f22d68a)
 
-# Todo
+## Todo
 
 - Create the main repository
 - Organize the v1
