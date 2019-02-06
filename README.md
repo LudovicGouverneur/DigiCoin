@@ -11,3 +11,9 @@
 - Angular version
 - Create the Trello
 - Create the powerpoint
+
+
+Ressources : 
+
+ - medium article : [draft #1](https://medium.com/@ludovic.gouverneur/digicoin-project-an-experimental-and-local-digital-economy-feb-2019-1b460f22d68a)
+ 
