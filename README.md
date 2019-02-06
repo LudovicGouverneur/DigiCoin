@@ -15,7 +15,9 @@
     - web application : none
 
 ## Version 2.0
- 
+  - Developper(s) : 
+    - [Yann-Aël Le Borgne](https://www.linkedin.com/in/yannaelb/)
+    - [Ludovic Gouverneur)(https://www.linkedin.com/in/LGouverneur6921/)
  ### Abstract : The smart contract is compiled and deployed using  
  ### link : /
     - https://remix.ethereum.org/
